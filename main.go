@@ -30,7 +30,8 @@ func main() {
 			Namespace:    "argo",
 		},
 		Spec: wf.WorkflowSpec{
-			Entrypoint: "main",
+			Entrypoint:         "main",
+			ServiceAccountName: "argo",
 			Templates: []wf.Template{
 				{
 					Name: "main",
@@ -38,17 +39,30 @@ func main() {
 						{
 							Steps: []wf.WorkflowStep{
 								{
-									Name:     "validate-params",
+									Name:     "run-validate",
 									Template: "validate",
 								},
 							},
-						},
+						}, // Only steps, no container
 					},
 				},
 				{
 					Name: "validate",
 					Container: &corev1.Container{
-						Image: "my-validate:latest",
+						Image:           "my-validate:latest",
+						ImagePullPolicy: "IfNotPresent",
+						Command:         []string{"sh", "-c"},
+						Args:            []string{"echo true > /tmp/validated.txt"},
+					},
+					Outputs: wf.Outputs{
+						Parameters: []wf.Parameter{
+							{
+								Name: "validated",
+								ValueFrom: &wf.ValueFrom{
+									Path: "/tmp/validated.txt",
+								},
+							},
+						},
 					},
 				},
 			},
