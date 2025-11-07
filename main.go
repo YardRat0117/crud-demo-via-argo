@@ -38,28 +38,97 @@ func main() {
 					Steps: []wf.ParallelSteps{
 						{
 							Steps: []wf.WorkflowStep{
-								{
-									Name:     "run-validate",
-									Template: "validate",
-								},
+								{Name: "run-create", Template: "create"},
 							},
-						}, // Only steps, no container
+						},
+						{
+							Steps: []wf.WorkflowStep{
+								{Name: "run-read", Template: "read"},
+							},
+						},
+						{
+							Steps: []wf.WorkflowStep{
+								{Name: "run-update", Template: "update"},
+							},
+						},
+						{
+							Steps: []wf.WorkflowStep{
+								{Name: "run-delete", Template: "delete"},
+							},
+						},
 					},
 				},
 				{
-					Name: "validate",
+					Name: "create",
 					Container: &corev1.Container{
-						Image:           "my-validate:latest",
+						Image:           "my-create:latest",
 						ImagePullPolicy: "IfNotPresent",
 						Command:         []string{"sh", "-c"},
-						Args:            []string{"echo true > /tmp/validated.txt"},
+						Args:            []string{"echo true > /tmp/created.txt"},
 					},
 					Outputs: wf.Outputs{
 						Parameters: []wf.Parameter{
 							{
-								Name: "validated",
+								Name: "created",
 								ValueFrom: &wf.ValueFrom{
-									Path: "/tmp/validated.txt",
+									Path: "/tmp/created.txt",
+								},
+							},
+						},
+					},
+				},
+				{
+					Name: "read",
+					Container: &corev1.Container{
+						Image:           "my-read:latest",
+						ImagePullPolicy: "IfNotPresent",
+						Command:         []string{"sh", "-c"},
+						Args:            []string{"echo true > /tmp/read.txt"},
+					},
+					Outputs: wf.Outputs{
+						Parameters: []wf.Parameter{
+							{
+								Name: "read",
+								ValueFrom: &wf.ValueFrom{
+									Path: "/tmp/read.txt",
+								},
+							},
+						},
+					},
+				},
+				{
+					Name: "update",
+					Container: &corev1.Container{
+						Image:           "my-update:latest",
+						ImagePullPolicy: "IfNotPresent",
+						Command:         []string{"sh", "-c"},
+						Args:            []string{"echo true > /tmp/updated.txt"},
+					},
+					Outputs: wf.Outputs{
+						Parameters: []wf.Parameter{
+							{
+								Name: "updated",
+								ValueFrom: &wf.ValueFrom{
+									Path: "/tmp/updated.txt",
+								},
+							},
+						},
+					},
+				},
+				{
+					Name: "delete",
+					Container: &corev1.Container{
+						Image:           "my-delete:latest",
+						ImagePullPolicy: "IfNotPresent",
+						Command:         []string{"sh", "-c"},
+						Args:            []string{"echo true > /tmp/deleted.txt"},
+					},
+					Outputs: wf.Outputs{
+						Parameters: []wf.Parameter{
+							{
+								Name: "deleted",
+								ValueFrom: &wf.ValueFrom{
+									Path: "/tmp/deleted.txt",
 								},
 							},
 						},
