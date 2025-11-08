@@ -1,0 +1,7 @@
+Completed 43 Bytes/43 Bytes (7.6 KiB/s) with 1 file(s) remainingdownload: s3://testbucket/himinio.txt to ../tmp/himinio.txt     
+Completed 58 Bytes/58 Bytes (6.6 KiB/s) with 1 file(s) remainingupload: ../tmp/himinio.txt to s3://testbucket/himinio.txt       
+create success
+read success
+update success
+delete success
+time="2025-11-08T09:16:02.167Z" level=info msg="sub-process exited" argo=true error="<nil>"

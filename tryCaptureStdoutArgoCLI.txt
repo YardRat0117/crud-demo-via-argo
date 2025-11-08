@@ -1,0 +1,22 @@
+[32mecho-demo-task-cl564-create-996119379: make_bucket: testbucket[0m
+[32mecho-demo-task-cl564-create-996119379: Completed 15 Bytes/15 Bytes (1.7 KiB/s) with 1 file(s) remainingupload: ../tmp/himinio.txt to s3://testbucket/himinio.txt       [0m
+[32mecho-demo-task-cl564-create-996119379: create success[0m
+[32mecho-demo-task-cl564-create-996119379: time="2025-11-08T09:14:17.667Z" level=info msg="sub-process exited" argo=true error="<nil>"[0m
+[36mecho-demo-task-cl564-read-4183891408: Completed 15 Bytes/15 Bytes (3.0 KiB/s) with 1 file(s) remainingdownload: s3://testbucket/himinio.txt to ../tmp/himinio.txt     [0m
+[36mecho-demo-task-cl564-read-4183891408: Completed 28 Bytes/28 Bytes (2.9 KiB/s) with 1 file(s) remainingupload: ../tmp/himinio.txt to s3://testbucket/himinio.txt       [0m
+[36mecho-demo-task-cl564-read-4183891408: create success[0m
+[36mecho-demo-task-cl564-read-4183891408: read success[0m
+[36mecho-demo-task-cl564-read-4183891408: time="2025-11-08T09:14:50.596Z" level=info msg="sub-process exited" argo=true error="<nil>"[0m
+[36mecho-demo-task-cl564-update-658955548: Completed 28 Bytes/28 Bytes (5.9 KiB/s) with 1 file(s) remainingdownload: s3://testbucket/himinio.txt to ../tmp/himinio.txt     [0m
+[36mecho-demo-task-cl564-update-658955548: Completed 43 Bytes/43 Bytes (4.1 KiB/s) with 1 file(s) remainingupload: ../tmp/himinio.txt to s3://testbucket/himinio.txt       [0m
+[36mecho-demo-task-cl564-update-658955548: create success[0m
+[36mecho-demo-task-cl564-update-658955548: read success[0m
+[36mecho-demo-task-cl564-update-658955548: update success[0m
+[36mecho-demo-task-cl564-update-658955548: time="2025-11-08T09:15:24.402Z" level=info msg="sub-process exited" argo=true error="<nil>"[0m
+[35mecho-demo-task-cl564-delete-983179201: Completed 43 Bytes/43 Bytes (7.6 KiB/s) with 1 file(s) remainingdownload: s3://testbucket/himinio.txt to ../tmp/himinio.txt     [0m
+[35mecho-demo-task-cl564-delete-983179201: Completed 58 Bytes/58 Bytes (6.6 KiB/s) with 1 file(s) remainingupload: ../tmp/himinio.txt to s3://testbucket/himinio.txt       [0m
+[35mecho-demo-task-cl564-delete-983179201: create success[0m
+[35mecho-demo-task-cl564-delete-983179201: read success[0m
+[35mecho-demo-task-cl564-delete-983179201: update success[0m
+[35mecho-demo-task-cl564-delete-983179201: delete success[0m
+[35mecho-demo-task-cl564-delete-983179201: time="2025-11-08T09:16:02.167Z" level=info msg="sub-process exited" argo=true error="<nil>"[0m
