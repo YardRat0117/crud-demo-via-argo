@@ -35,3 +35,6 @@ kubectl -n argo patch deploy argo-server \
        "periodSeconds": 5
      }}
   ]'
+
+# Run the minio service
+kubectl apply -n argo -f ./minio.yml
